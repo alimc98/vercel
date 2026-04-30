@@ -20,7 +20,7 @@ const STRIP_HEADERS = new Set([
 
 export default async function handler(req) {
   if (!TARGET_BASE) {
-    return new Response("Misconfigured: TARGET_DOMAIN is not set", { status: 500 });
+    return new Response("Misconfigured: TARGET is not set", { status: 500 });
   }
 
   try {
@@ -57,6 +57,6 @@ export default async function handler(req) {
     });
   } catch (err) {
     console.error("relay error:", err);
-    return new Response("Bad Gateway: Tunnel Failed", { status: 502 });
+    return new Response("Bad Gateway: Failed", { status: 502 });
   }
 }
